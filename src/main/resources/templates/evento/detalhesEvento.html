@@ -24,14 +24,18 @@
       <p>Data: <span th:text="${evento.data}"></span></p>
       <p>Horario: <span th:text="${evento.horario}"></span></p>
     </div>
+    <form method="post">
+      Nome: <input type="text" name="nomeConvidado" id="" />
+      RG: <input type="text" name="rg" id="" />
+      <div class="center">
+        <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+        <a href="/eventos" class="waves-effect waves-light btn">
+          <i class="material-icons left">add_circle_outline</i>
+          Lista de Eventos
+        </a>
+      </div>
+    </form>
   </div>
-  <div class="center">
-    <a href="/eventos" class="waves-effect waves-light btn">
-      <i class="material-icons left">add_circle_outline</i>
-      Lista de Eventos
-    </a>
-  </div>
-
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

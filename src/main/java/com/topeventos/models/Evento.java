@@ -1,11 +1,13 @@
 package com.topeventos.models;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 // Anotamos nossa classe como uma entidade que será persistida no banco de dados
 @Entity
@@ -20,6 +22,10 @@ public class Evento implements Serializable {
   private String local;
   private String data;
   private String horario;
+
+  // Relacionamento um para muitos, Evento e Convidado
+  @OneToMany
+	private List<Convidado> convidados;
 
   public long getCodigo() {
     return codigo;
