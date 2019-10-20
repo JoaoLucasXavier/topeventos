@@ -11,39 +11,64 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" href="style/main.css" />
 </head>
 
 <body>
-  <h2 class="center">Cadastro de eventos</h2>
-  <form class="container" method="post">
-    Nome<input type="text" name="nome" id="">
-    <div class="row">
-      <div class="input-field col s6">
-        Local: <input type="text" name="local" id="">
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="menu">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">TOP EVENTOS</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="/cadastrarEvento">Novo Evento
+              <i class="material-icons left">add_circle_outline</i>
+            </a>
+          </li>
+          <li>
+            <a href="/eventos">Lista de Eventos
+              <i class="material-icons left">list</i>
+            </a>
+          </li>
+        </ul>
       </div>
-      <div class="input-field col s3">
-        Data: <input type="date" name="data" id="">
+    </nav>
+  </header>
+  <!-- NAVBAR -->
+
+  <!-- FORMULARIO DE CADASTRO DE EVENTOS -->
+  <div class="container formEvento">
+    <h3 class="center">Cadastro de eventos</h3>
+    <form method="post">
+      Nome<input type="text" name="nome" id="">
+      <div class="row">
+        <div class="input-field col s6">
+          Local: <input type="text" name="local" id="">
+        </div>
+        <div class="input-field col s3">
+          Data: <input type="date" name="data" id="">
+        </div>
+        <div class="input-field col s3">
+          Horário: <input type="text" name="horario" id="">
+        </div>
       </div>
-      <div class="input-field col s3">
-        Horário: <input type="text" name="horario" id="">
+      <div class="center">
+        <!-- INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
+        <span style="color: rgb(255, 136, 0);">
+          <th:block th:include="mensagemValidacao"></th:block>
+        </span>
+        <!-- FIM - INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
+        <button class="waves-effect waves-light btn" type='submit'>
+          <i class="material-icons left">save</i>
+          Salvar
+        </button>
       </div>
-    </div>
-    <div class="center">
-      <!-- INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
-      <span style="color: rgb(255, 136, 0);">
-        <th:block th:include="mensagemValidacao"></th:block>
-      </span>
-      <!-- FIM - INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
-      <button class="waves-effect waves-light btn" type='submit'>
-        <i class="material-icons left">save</i>
-        Salvar
-      </button>
-      <a href="/eventos" class="waves-effect waves-light btn">
-        <i class="material-icons left">format_list_bulleted</i>
-        Lista de Eventos
-      </a>
-    </div>
-  </form>
+    </form>
+  </div>
+  <!-- FIM - FORMULARIO DE CADASTRO DE EVENTOS -->
+
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

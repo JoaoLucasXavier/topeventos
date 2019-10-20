@@ -7,6 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
+/*
+-> Alternativa validação:
+  private String rg;
+  @NotNull(message = "Campo RG não pode ser vazio!")
+  @Size(min = 2, max = 32, message = "Tem de ter pelo menos 2 letras")
+*/
+
 @Entity
 public class Convidado {
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
 <head>
   <title>TopEventos</title>
   <!--Import Google Icon Font-->
@@ -9,21 +10,51 @@
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style/styleCss.css" />
+  <link rel="stylesheet" href="style/main.css" />
 </head>
+
 <body>
-  <h2 class="center">Evento</h2>
-  <div th:each="evento : ${evento}" class="container">
-    <!-- DADOS SOBRE O EVENTO -->
-    <h4>Detalhes do Evento</h4>
-    <div class="row">
-      <p><b>Nome:</b> <span th:text="${evento.nome}"></span></p>
-      <p><b>Local:</b> <span th:text="${evento.local}"></span></p>
-      <p><b>Data:</b> <span th:text="${evento.data}"></span></p>
-      <p><b>Horario:</b> <span th:text="${evento.horario}"></span></p>
-      <!-- FIM - DADOS SOBRE O EVENTO -->
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="menu">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">TOP EVENTOS</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li>
+            <a href="/cadastrarEvento">Novo Evento
+              <i class="material-icons left">add_circle_outline</i>
+            </a>
+          </li>
+          <li>
+            <a href="/eventos">Lista de Eventos
+              <i class="material-icons left">list</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- FIM - NAVBAR -->
+
+  <!-- DADOS SOBRE O EVENTO -->
+  <div class="container detalhesEvento">
+    <h5 class="center">Detalhes do Evento</h5>
+    <div th:each="evento : ${evento}">
+      <div class="row">
+        <p><b>Nome:</b> <span th:text="${evento.nome}"></span></p>
+        <p><b>Local:</b> <span th:text="${evento.local}"></span></p>
+        <p><b>Data:</b> <span th:text="${evento.data}"></span></p>
+        <p><b>Horario:</b> <span th:text="${evento.horario}"></span></p>
+      </div>
     </div>
-    <!-- CADASTRO CONVIDADOS EVENTO -->
+  </div>
+
+  <!-- FIM - DADOS SOBRE O EVENTO -->
+
+  <!-- CADASTRO CONVIDADOS EVENTO -->
+  <div class="container formConvidado">
+    <h5 class="center">Adicionar Convidados</h5>
     <form method="post" th:object="${convidado}">
       Nome: <input type="text" value="" name="nomeConvidado" placeholder="Nome Completo" />
       Rg: <input type="text" value="" name="rg" placeholder="AA-00.000.000" class="validate" />
@@ -34,38 +65,37 @@
         </span>
         <!-- FIM - INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
         <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
-        <!-- VOLTAR PARA LISTAGEM DE EVENTOS -->
-        <a href="/eventos" class="waves-effect waves-light btn">
-          <i class="material-icons left">add_circle_outline</i>
-          Lista de Eventos
-        </a>
-        <!-- FIM - VOLTAR PARA LISTAGEM DE EVENTOS -->
       </div>
     </form>
-    <!-- FIM CADASTRO CONVIDADOS EVENTO -->
   </div>
+  <!-- FIM CADASTRO CONVIDADOS EVENTO -->
+
   <!-- LISTA DE CONVIDADOS DO EVENTO -->
-  <h4 class="center">Convidados para o Evento</h4>
-  <table class="container">
-    <thead>
-      <th>Nome</th>
-      <th>RG</th>
-    </thead>
-    <tbody>
-      <tr th:each="convidado : ${convidados}">
-        <td>
-          <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
-            <span th:text="${convidado.nomeConvidado}">
-            </span>
-          </a>
-        </td>
-        <td><span th:text="${convidado.rg}"></span></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container tabelaConvidado">
+    <h5 class="center">Lista de Convidados</h5>
+    <table>
+      <thead>
+        <th>Nome</th>
+        <th>RG</th>
+      </thead>
+      <tbody>
+        <tr th:each="convidado : ${convidados}">
+          <td>
+            <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+              <span th:text="${convidado.nomeConvidado}">
+              </span>
+            </a>
+          </td>
+          <td><span th:text="${convidado.rg}"></span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <!-- FIM - LISTA DE CONVIDADOS DO EVENTO -->
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 
 </body>
+
 </html>
