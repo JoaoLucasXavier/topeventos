@@ -64,6 +64,13 @@ public class EventoController {
     return mv;
   }
 
+  @RequestMapping("/deletarEvento")
+  public String deletarEvento(long codigo) {
+    Evento evento = er.findByCodigo(codigo);
+    er.delete(evento);
+    return "redirect:/eventos";
+  }
+
   @RequestMapping(value = "/{codigo}", method = RequestMethod.POST)
   public String detalhesEventoPost(@PathVariable("codigo") long codigo, @Valid Convidado convidado,
       BindingResult result, RedirectAttributes attributes) {
@@ -80,6 +87,13 @@ public class EventoController {
     convidado.setEvento(evento);
     cr.save(convidado);
     attributes.addFlashAttribute("mensagem", "Convidado adicionado com sucesso!");
+    return "redirect:/{codigo}";
+  }
+
+  @RequestMapping("/deletarConvidado")
+  public String deletarConvidado(long codigo) {
+    Convidado convidado = cr.findByCodigo(codigo);
+    cr.delete(convidado);
     return "redirect:/{codigo}";
   }
 
