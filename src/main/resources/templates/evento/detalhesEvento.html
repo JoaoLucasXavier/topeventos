@@ -24,9 +24,9 @@
       <p>Data: <span th:text="${evento.data}"></span></p>
       <p>Horario: <span th:text="${evento.horario}"></span></p>
     </div>
-    <form method="post">
-      Nome: <input type="text" name="nomeConvidado" id="" />
-      RG: <input type="text" name="rg" id="" />
+    <form method="post" th:object="${convidado}">
+      Nome: <input type="text" value="" name="nomeConvidado" placeholder="Nome Completo"/>
+      Rg: <input type="text" value="" name="rg" placeholder="AA-00.000.000" class="validate"/>
       <div class="center">
         <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
         <a href="/eventos" class="waves-effect waves-light btn">
@@ -34,7 +34,7 @@
           Lista de Eventos
         </a>
       </div>
-    </form>
+		</form>
   </div>
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
