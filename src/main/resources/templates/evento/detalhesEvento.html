@@ -17,26 +17,51 @@
 <body>
   <h2 class="center">Evento</h2>
   <div th:each="evento : ${evento}" class="container">
-    <h5>Detalhes do Evento</h5>
+    <!-- DADOS SOBRE O EVENTO -->
+    <h4>Detalhes do Evento</h4>
     <div class="row">
-      <p>Nome: <span th:text="${evento.nome}"></span></p>
-      <p>Local: <span th:text="${evento.local}"></span></p>
-      <p>Data: <span th:text="${evento.data}"></span></p>
-      <p>Horario: <span th:text="${evento.horario}"></span></p>
+      <p><b>Nome:</b> <span th:text="${evento.nome}"></span></p>
+      <p><b>Local:</b> <span th:text="${evento.local}"></span></p>
+      <p><b>Data:</b> <span th:text="${evento.data}"></span></p>
+      <p><b>Horario:</b> <span th:text="${evento.horario}"></span></p>
+      <!-- FIM - DADOS SOBRE O EVENTO -->
     </div>
+    <!-- CADASTRO CONVIDADOS EVENTO -->
     <form method="post" th:object="${convidado}">
-      Nome: <input type="text" value="" name="nomeConvidado" placeholder="Nome Completo"/>
-      Rg: <input type="text" value="" name="rg" placeholder="AA-00.000.000" class="validate"/>
-      <div class="center">
+      Nome: <input type="text" value="" name="nomeConvidado" placeholder="Nome Completo" />
+      Rg: <input type="text" value="" name="rg" placeholder="AA-00.000.000" class="validate" />
+      <div class="container center">
         <button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+        <!-- VOLTAR PARA LISTAGEM DE EVENTOS -->
         <a href="/eventos" class="waves-effect waves-light btn">
           <i class="material-icons left">add_circle_outline</i>
           Lista de Eventos
         </a>
+        <!-- FIM - VOLTAR PARA LISTAGEM DE EVENTOS -->
       </div>
-		</form>
+    </form>
+    <!-- FIM CADASTRO CONVIDADOS EVENTO -->
   </div>
-
+  <!-- LISTA DE CONVIDADOS DO EVENTO -->
+  <h4 class="center">Convidados para o Evento</h4>
+  <table class="container">
+    <thead>
+      <th>Nome</th>
+      <th>RG</th>
+    </thead>
+    <tbody>
+      <tr th:each="convidado : ${convidados}">
+        <td>
+          <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+            <span th:text="${convidado.nomeConvidado}">
+            </span>
+          </a>
+        </td>
+        <td><span th:text="${convidado.rg}"></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- FIM - LISTA DE CONVIDADOS DO EVENTO -->
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 

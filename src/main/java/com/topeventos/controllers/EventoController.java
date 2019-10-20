@@ -49,6 +49,9 @@ public class EventoController {
     Evento evento = er.findByCodigo(codigo);
     ModelAndView mv = new ModelAndView("evento/detalhesEvento");
     mv.addObject("evento", evento);
+    // Enviar para view 'detalhesEvento' lista de convidados de determinado Evento
+    Iterable<Convidado> convidados = cr.findByEvento(evento);
+    mv.addObject("convidados", convidados);
     return mv;
   }
 
