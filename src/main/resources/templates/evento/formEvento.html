@@ -25,10 +25,15 @@
         Data: <input type="date" name="data" id="">
       </div>
       <div class="input-field col s3">
-        Horário: <input type="time" name="horario" id="">
+        Horário: <input type="text" name="horario" id="">
       </div>
     </div>
     <div class="center">
+      <!-- INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
+      <span style="color: rgb(255, 136, 0);">
+        <th:block th:include="mensagemValidacao"></th:block>
+      </span>
+      <!-- FIM - INCLUI TEMPLATE DE VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO -->
       <button class="waves-effect waves-light btn" type='submit'>
         <i class="material-icons left">save</i>
         Salvar

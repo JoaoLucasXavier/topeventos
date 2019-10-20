@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Convidado {
@@ -13,7 +14,10 @@ public class Convidado {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long codigo;
 
+  @NotEmpty
   private String rg;
+
+  @NotEmpty
   private String nomeConvidado;
 
   // Relacionamento muitos para um, Evento e Convidado

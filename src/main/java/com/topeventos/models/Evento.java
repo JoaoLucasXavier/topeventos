@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
 
 // Anotamos nossa classe como uma entidade que será persistida no banco de dados
 @Entity
@@ -18,14 +19,22 @@ public class Evento implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long codigo;
+
+  @NotEmpty
   private String nome;
+
+  @NotEmpty
   private String local;
+
+  @NotEmpty
   private String data;
+
+  @NotEmpty
   private String horario;
 
   // Relacionamento um para muitos, Evento e Convidado
   @OneToMany
-	private List<Convidado> convidados;
+  private List<Convidado> convidados;
 
   public long getCodigo() {
     return codigo;
