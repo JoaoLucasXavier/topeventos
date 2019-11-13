@@ -1,7 +1,7 @@
 
 # TOPEVENTOS
 
-**Topeventos é um sistema web que fornece uma solução simples e fácil para gerenciar seus eventos pessoais ou profissionais.**   
+**Topeventos é um sistema web que fornece uma solução simples e fácil para gerenciar seus eventos pessoais e profissionais.**   
 
 Dentre as funcionalidades, temos:
 
