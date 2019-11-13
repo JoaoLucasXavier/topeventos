@@ -17,25 +17,25 @@ Abaixo você pode conferir as funcionalidades do sistema.
 
 ## Cadastro de eventos:
 
-![](/home/lucasxavier/central/knowledge/1-programming/3-java/2-sistemas/spring/topeventos/assets/readme-images/01.png)
+![](https://github.com/JoaoLucasXavier/topeventos/blob/master/assets/readme-images/01.png)
 
 
 
 ## Lista de eventos:
 
-![](/home/lucasxavier/central/knowledge/1-programming/3-java/2-sistemas/spring/topeventos/assets/readme-images/02.png)
+![](https://github.com/JoaoLucasXavier/topeventos/blob/master/assets/readme-images/02.png)
 
 
 
 ## Detalhes de eventos:
 
-![](/home/lucasxavier/central/knowledge/1-programming/3-java/2-sistemas/spring/topeventos/assets/readme-images/03.png)
+![](https://github.com/JoaoLucasXavier/topeventos/blob/master/assets/readme-images/03.png)
 
 
 
 ## Cadastro e Listagem de convidados:
 
-![](/home/lucasxavier/central/knowledge/1-programming/3-java/2-sistemas/spring/topeventos/assets/readme-images/04.png)
+![](https://github.com/JoaoLucasXavier/topeventos/blob/master/assets/readme-images/04.png)
 
 
 Sinta-se a vontade para explorar o topevento. Bom aproveito!
