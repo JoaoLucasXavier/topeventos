@@ -9,58 +9,57 @@ import javax.validation.constraints.NotEmpty;
 
 /*
 -> Alternativa validação:
-  private String rg;
-  @NotNull(message = "Campo RG não pode ser vazio!")
-  @Size(min = 2, max = 32, message = "Tem de ter pelo menos 2 letras")
+    private String rg;
+    @NotNull(message = "Campo RG não pode ser vazio!")
+    @Size(min = 2, max = 32, message = "Tem de ter pelo menos 2 letras")
 */
 
 @Entity
 public class Convidado {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private long codigo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long codigo;
 
-  @NotEmpty
-  private String rg;
+    @NotEmpty
+    private String rg;
 
-  @NotEmpty
-  private String nomeConvidado;
+    @NotEmpty
+    private String nomeConvidado;
 
-  // Relacionamento muitos para um, Evento e Convidado
-  @ManyToOne
-  private Evento evento;
+    @ManyToOne
+    private Evento evento;
 
-  public long getCodigo() {
-    return codigo;
-  }
+    public long getCodigo() {
+        return codigo;
+    }
 
-  public void setCodigo(long codigo) {
-    this.codigo = codigo;
-  }
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
 
-  public String getRg() {
-    return rg;
-  }
+    public String getRg() {
+        return rg;
+    }
 
-  public void setRg(String rg) {
-    this.rg = rg;
-  }
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
 
-  public String getNomeConvidado() {
-    return nomeConvidado;
-  }
+    public String getNomeConvidado() {
+        return nomeConvidado;
+    }
 
-  public void setNomeConvidado(String nomeConvidado) {
-    this.nomeConvidado = nomeConvidado;
-  }
+    public void setNomeConvidado(String nomeConvidado) {
+        this.nomeConvidado = nomeConvidado;
+    }
 
-  public Evento getEvento() {
-    return evento;
-  }
+    public Evento getEvento() {
+        return evento;
+    }
 
-  public void setEvento(Evento evento) {
-    this.evento = evento;
-  }
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
 
 }

@@ -3,76 +3,76 @@
 <html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Index</title>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-  <link rel="stylesheet" href="style/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="style/main.css" />
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <nav class="menu">
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">TOP EVENTOS</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li>
-            <a href="/cadastrarEvento">Novo Evento
-              <i class="material-icons left">add_circle_outline</i>
-            </a>
-          </li>
-          <li>
-            <a href="/eventos">Lista de Eventos
-              <i class="material-icons left">list</i>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- FIM - NAVBAR -->
+    <!-- NAVBAR -->
+    <header>
+        <nav class="menu">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">TOP EVENTOS</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/cadastrarEvento">Novo Evento
+                            <i class="material-icons left">add_circle_outline</i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/eventos">Lista de Eventos
+                            <i class="material-icons left">list</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- FIM - NAVBAR -->
 
-  <!--  LISTAGEM DE EVENTOS -->
-  <div class="container tabelaEventos">
-    <h3 class="center">Lista de Eventos</h3>
-    <table>
-      <thead>
-        <th>Nome</th>
-        <th>Local</th>
-        <th>Data</th>
-        <th>Horário</th>
-        <th>Deletar</th>
-      </thead>
-      <tbody>
-        <tr th:each="evento : ${eventos}">
-          <td>
-            <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
-              <span th:text="${evento.nome}">
-              </span>
-            </a>
-          </td>
-          <td><span th:text="${evento.local}"></span></td>
-          <td><span th:text="${evento.data}"></span></td>
-          <td><span th:text="${evento.horario}"></span></td>
-          <td>
-            <a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}">
-              <i class="material-icons left">delete</i>
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <!-- FIM - LITAGEM DE EVENTOS -->
+    <!--  LISTAGEM DE EVENTOS -->
+    <div class="container tabelaEventos">
+        <h3 class="center">Lista de Eventos</h3>
+        <table>
+            <thead>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Data</th>
+                <th>Horário</th>
+                <th>Deletar</th>
+            </thead>
+            <tbody>
+                <tr th:each="evento : ${eventos}">
+                    <td>
+                        <a th:href="${(#mvc.url('EC#detalhesEvento').arg(0, evento.codigo)).build()}">
+                            <span th:text="${evento.nome}">
+                            </span>
+                        </a>
+                    </td>
+                    <td><span th:text="${evento.local}"></span></td>
+                    <td><span th:text="${evento.data}"></span></td>
+                    <td><span th:text="${evento.horario}"></span></td>
+                    <td>
+                        <a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.codigo)).build()}">
+                            <i class="material-icons left">delete</i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- FIM - LITAGEM DE EVENTOS -->
 
-  <!--JavaScript at end of body for optimized loading-->
-  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
 
 </html>
