@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 
@@ -28,6 +29,7 @@ public class Convidado {
     private String nomeConvidado;
 
     @ManyToOne
+    @JoinColumn(name = "fk_evento")
     private Evento evento;
 
     public long getCodigo() {
