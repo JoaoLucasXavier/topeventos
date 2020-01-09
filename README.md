@@ -38,6 +38,6 @@ Abaixo você pode conferir as funcionalidades do sistema.
 ![](https://github.com/JoaoLucasXavier/topeventos/blob/master/assets/readme-images/04.png)
 
 
-Sinta-se a vontade para explorar o topevento. Bom aproveito!
+Sinta-se a vontade para explorar o topevento.
 
 ​    
